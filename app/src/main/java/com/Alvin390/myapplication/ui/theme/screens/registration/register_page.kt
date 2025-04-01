@@ -13,6 +13,7 @@ import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
@@ -44,7 +45,7 @@ fun register_page(modifier: Modifier = Modifier) {
         modifier = Modifier
             .fillMaxSize()
             .background(Color.White)) {
-        Text(text = "Registration Page",
+        Text(text = "Registration",
             color = Color.Red,
             fontSize = 35.sp,
             fontFamily = FontFamily.Cursive,
@@ -77,7 +78,8 @@ fun register_page(modifier: Modifier = Modifier) {
             shape = RoundedCornerShape(20.dp),)
         Spacer(modifier=Modifier.height(50.dp))
         Button(onClick = {/* TODO */},
-            modifier = Modifier.width(300.dp),){
+            modifier = Modifier.width(300.dp),
+            colors = ButtonDefaults.buttonColors(containerColor = Color.Red)){
             Text(text="Register",
                 fontSize = 30.sp)}
     }
