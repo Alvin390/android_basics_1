@@ -61,7 +61,7 @@ OutlinedTextField(value = password,
     shape = RoundedCornerShape(20.dp),)
         Spacer(modifier=Modifier.height(50.dp))
         Button(onClick = {/* TODO */},
-            modifier = Modifier.width(300.dp)){
+            modifier = Modifier.width(300.dp),){
             Text(text="LOGIN",
                 fontSize = 30.sp)}
     }
