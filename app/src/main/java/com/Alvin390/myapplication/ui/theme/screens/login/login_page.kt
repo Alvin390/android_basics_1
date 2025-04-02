@@ -1,11 +1,13 @@
 package com.Alvin390.myapplication.ui.theme.screens.login
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -27,13 +29,18 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.input.TextFieldValue
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
+import com.Alvin390.myapplication.navigation.ROUTE_HOME
 
 
 @Composable
-fun login_page(modifier: Modifier = Modifier) {
+fun login_page(navController: NavHostController) {
     var email by remember { mutableStateOf(TextFieldValue("")) }
     var password by remember { mutableStateOf(TextFieldValue("")) }
     Column (verticalArrangement = Arrangement.Center,
@@ -65,10 +72,16 @@ OutlinedTextField(value = password,
             Text(text="LOGIN",
                 fontSize = 30.sp)}
     }
-    
+Spacer(modifier=Modifier.height(20.dp))
+    Text(
+        text = "Back to Home",
+        fontSize = 30.sp,
+        modifier = Modifier
+            .clickable { navController.navigate(ROUTE_HOME) }
+    )
 }
 @Preview
 @Composable
 private fun Login_preview() {
-    login_page()
+    login_page(rememberNavController())
 }

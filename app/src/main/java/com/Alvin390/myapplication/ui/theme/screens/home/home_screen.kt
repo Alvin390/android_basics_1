@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -22,10 +23,15 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import com.Alvin390.myapplication.R
+import com.Alvin390.myapplication.navigation.ROUTE_LOGIN
+import com.Alvin390.myapplication.navigation.ROUTE_REGISTER
 
 @Composable
-fun home_screen(modifier: Modifier = Modifier) {
+fun home_screen(navController: NavHostController) {
     Column (modifier = Modifier.run {
         fillMaxSize()
             .background(Color.Cyan)
@@ -62,13 +68,13 @@ fun home_screen(modifier: Modifier = Modifier) {
             color = Color.Black
         )
         Spacer(modifier = Modifier.height(40.dp))
-        Button(onClick = {/* TODO */},
+        Button(onClick = {navController.navigate(ROUTE_LOGIN)},
             modifier = Modifier.width(300.dp)){
             Text(text="LOGIN",
                 fontSize = 30.sp)}
 
         Spacer(modifier = Modifier.height(40.dp))
-        Button(onClick = {/* TODO */},
+        Button(onClick = {navController.navigate(ROUTE_REGISTER)},
             modifier = Modifier.width(300.dp)){
             Text(text="Register",
                 fontSize = 30.sp)}
@@ -79,6 +85,6 @@ fun home_screen(modifier: Modifier = Modifier) {
 @Preview
 @Composable
 private fun home_preview() {
-    home_screen()
+    home_screen(rememberNavController())
 
 }

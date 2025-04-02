@@ -32,10 +32,13 @@ import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 
 
 @Composable
-fun register_page(modifier: Modifier = Modifier) {
+fun register_page(navController: NavHostController) {
     var fname by remember { mutableStateOf(TextFieldValue("")) }
     var lname by remember { mutableStateOf(TextFieldValue("")) }
     var email by remember { mutableStateOf(TextFieldValue("")) }
@@ -51,6 +54,7 @@ fun register_page(modifier: Modifier = Modifier) {
             fontFamily = FontFamily.Cursive,
             fontStyle = FontStyle.Italic
         )
+        Spacer(modifier=Modifier.height(50.dp))
         Spacer(modifier=Modifier.height(50.dp))
         OutlinedTextField(value =fname ,
             onValueChange ={fname=it},
@@ -88,5 +92,5 @@ fun register_page(modifier: Modifier = Modifier) {
 @Preview
 @Composable
 private fun Login_preview() {
-    register_page()
+    register_page(rememberNavController())
 }
