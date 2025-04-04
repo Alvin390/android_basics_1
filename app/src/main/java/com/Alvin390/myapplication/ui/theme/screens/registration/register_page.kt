@@ -1,6 +1,7 @@
 package com.Alvin390.myapplication.ui.theme.screens.registration
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -35,6 +36,9 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
+import com.Alvin390.myapplication.navigation.ROUTE_HOME
+import com.Alvin390.myapplication.navigation.ROUTE_LOGIN
+import com.Alvin390.myapplication.navigation.ROUTE_REGISTER
 
 
 @Composable
@@ -86,6 +90,23 @@ fun register_page(navController: NavHostController) {
             colors = ButtonDefaults.buttonColors(containerColor = Color.Red)){
             Text(text="Register",
                 fontSize = 30.sp)}
+        Spacer(modifier = Modifier.height(10.dp))
+        Text(
+            text = "Have an Account ? Login.",
+            fontSize = 15.sp,
+            modifier = Modifier
+                .clickable{navController.navigate(ROUTE_LOGIN)}
+
+        )
+        Text(
+            text = "Back to Home",
+            fontSize = 15.sp,
+            modifier = Modifier
+                .clickable { navController.navigate(ROUTE_HOME)}
+
+
+
+        )
     }
 
 }

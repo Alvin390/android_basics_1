@@ -37,6 +37,7 @@ import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.Alvin390.myapplication.navigation.ROUTE_HOME
+import com.Alvin390.myapplication.navigation.ROUTE_REGISTER
 
 
 @Composable
@@ -58,7 +59,8 @@ fun login_page(navController: NavHostController) {
             onValueChange ={email=it},
             label = { Text(text = "Enter your email") },
             leadingIcon = { Icon(Icons.Default.Email, contentDescription = "Email Icon") },
-            shape = RoundedCornerShape(20.dp))
+            shape = RoundedCornerShape(20.dp)
+        )
 Spacer(modifier=Modifier.height(50.dp))
 OutlinedTextField(value = password,
     onValueChange = {password=it},
@@ -71,14 +73,21 @@ OutlinedTextField(value = password,
             modifier = Modifier.width(300.dp),){
             Text(text="LOGIN",
                 fontSize = 30.sp)}
+        Spacer(modifier = Modifier.height(5.dp))
+
+        Spacer(modifier = Modifier.height(10.dp))
+        Text(
+            text = "Back to Home",
+            fontSize = 15.sp,
+            modifier = Modifier
+                .clickable { navController.navigate(ROUTE_HOME)}
+
+
+
+        )
     }
 Spacer(modifier=Modifier.height(20.dp))
-    Text(
-        text = "Back to Home",
-        fontSize = 30.sp,
-        modifier = Modifier
-            .clickable { navController.navigate(ROUTE_HOME) }
-    )
+
 }
 @Preview
 @Composable
