@@ -7,6 +7,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.Alvin390.myapplication.ui.theme.screens.dashboard.Dashboard_Screen
 import com.Alvin390.myapplication.ui.theme.screens.home.home_screen
 import com.Alvin390.myapplication.ui.theme.screens.login.login_page
 import com.Alvin390.myapplication.ui.theme.screens.registration.register_page
@@ -23,5 +24,6 @@ fun AppNavHost(modifier: Modifier = Modifier,
          composable(ROUTE_LOGIN) { login_page(navController) }
          composable(ROUTE_REGISTER) { register_page(navController) }
             composable(ROUTE_SPLASH) { splash_screen(navController) }
+            composable(ROUTE_DASHBOARD) { Dashboard_Screen() }
     }
 }

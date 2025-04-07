@@ -22,6 +22,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.Alvin390.myapplication.R
+import com.Alvin390.myapplication.navigation.ROUTE_DASHBOARD
 import com.Alvin390.myapplication.navigation.ROUTE_LOGIN
 import com.Alvin390.myapplication.navigation.ROUTE_REGISTER
 
@@ -115,6 +116,21 @@ fun home_screen(navController: NavHostController) {
         ) {
             Text(
                 text = "REGISTER",
+                fontSize = 24.sp,
+                color = Color.White
+            )
+        }
+        Spacer(modifier = Modifier.height(16.dp))
+        Button(
+            onClick = { navController.navigate(ROUTE_DASHBOARD)},
+            modifier = Modifier
+                .width(300.dp)
+                .height(60.dp)
+                .padding(8.dp),
+            shape = RoundedCornerShape(16.dp) // Rounded corners for buttons
+        ) {
+            Text(
+                text = "DASHBOARD",
                 fontSize = 24.sp,
                 color = Color.White
             )
