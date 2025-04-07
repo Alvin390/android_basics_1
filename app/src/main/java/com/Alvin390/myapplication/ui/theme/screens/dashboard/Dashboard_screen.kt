@@ -2,7 +2,6 @@ package com.Alvin390.myapplication.ui.theme.screens.dashboard
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.FlowColumnScopeInstance.weight
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -19,6 +18,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
@@ -27,6 +27,7 @@ import androidx.compose.ui.unit.sp
 import com.Alvin390.myapplication.data.DashboardViewModel
 import com.Alvin390.myapplication.model.DashboardStat
 import com.Alvin390.myapplication.model.QuickAction
+
 
 
 
@@ -96,11 +97,34 @@ fun StatCard(stat: DashboardStat) {
                 Text(text = stat.value, fontWeight = FontWeight.Bold, fontSize = 18.sp)
             }
             @Composable
-            fun QuickAction(actions:List<QuickAction>) {
+            fun QuickAction(actions: List<QuickAction>) {
                 Text(
                     text = "Quick Actions",
-                    style = MaterialTheme.typography.titleMedium
+                    style = MaterialTheme.typography.titleMedium,
+                    modifier = Modifier.padding(bottom = 8.dp)
                 )
+                Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
+                    actions.forEach {
+                        ActionItem(it)
+                    }
+                }
+            }
+
+            @Composable
+            fun ActionItem(modifier: Modifier = Modifier) {
+                Card(
+                    shape = RoundedCornerShape(12.dp),
+                    modifier = Modifier.fillMaxWidth()
+                            colors = CardDefaults.cardColors(containerColor = Color.LightGray)
+                ) {
+                    Row(
+                        modifier = Modifier
+                            .padding(16.dp),
+                    ) {
+                        Icon(action.icon, contentDescription = action.title, tint = Color.Black)
+                        Text(text = action.title, fontSize = 16.sp)
+                    }
+                }
             }
         }
     }
