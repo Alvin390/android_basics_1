@@ -98,7 +98,7 @@ fun StatCard(stat: DashboardStat) {
                 Text(text = stat.value, fontWeight = FontWeight.Bold, fontSize = 18.sp)
             }
             @Composable
-            fun QuickAction(actions: List<QuickAction>) {
+            fun QuickActions(actions: List<QuickAction>) {
                 Text(
                     text = "Quick Actions",
                     style = MaterialTheme.typography.titleMedium,
