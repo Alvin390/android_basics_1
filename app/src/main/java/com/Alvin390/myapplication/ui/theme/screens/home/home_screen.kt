@@ -132,7 +132,8 @@ fun home_screen(navController: NavHostController) {
             Text(
                 text = "DASHBOARD",
                 fontSize = 24.sp,
-                color = Color.White
+                color = Color.White,
+                modifier = Modifier.paddingFromBaseline(8.dp)
             )
         }
     }
