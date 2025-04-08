@@ -13,6 +13,7 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.MenuDefaults.containerColor
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -62,6 +63,8 @@ fun Dashboard_Screen (viewModel: DashboardViewModel=androidx.lifecycle.viewmodel
     }
 }
 
+
+
             @Composable
             fun StatsSection(stats: List<DashboardStat>) {
                 Row(
@@ -77,6 +80,7 @@ fun Dashboard_Screen (viewModel: DashboardViewModel=androidx.lifecycle.viewmodel
 
 @Composable
 fun StatCard(stat: DashboardStat) {
+
     Card(
         shape = RoundedCornerShape(16.dp),
         modifier = Modifier
@@ -97,6 +101,9 @@ fun StatCard(stat: DashboardStat) {
                 Text(text = stat.title, fontSize = 14.sp, color = Color.DarkGray)
                 Text(text = stat.value, fontWeight = FontWeight.Bold, fontSize = 18.sp)
             }
+        }
+    }
+}
             @Composable
             fun QuickActions(actions: List<QuickAction>) {
                 Text(
@@ -105,18 +112,18 @@ fun StatCard(stat: DashboardStat) {
                     modifier = Modifier.padding(bottom = 8.dp)
                 )
                 Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
-                    actions.forEach {
-                        ActionItem(it)
+                    actions.forEach {actions ->
+                        ActionItem(actions)
                     }
                 }
             }
 
             @Composable
-            fun ActionItem(modifier: Modifier = Modifier) {
+            fun ActionItem(action: QuickAction) {
                 Card(
                     shape = RoundedCornerShape(12.dp),
-                    modifier = Modifier.fillMaxWidth()
-                            colors = CardDefaults.cardColors(containerColor = Color.LightGray)
+                    modifier = Modifier.fillMaxWidth(),
+                    colors = CardDefaults.cardColors(containerColor = Color.White),
                 ) {
                     Row(
                         modifier = Modifier
@@ -128,10 +135,12 @@ fun StatCard(stat: DashboardStat) {
                 }
             }
 
+
 @Preview
 @Composable
-fun prev_dash() {
+private fun dash_prev() {
     Dashboard_Screen()
+
 }
 
 
